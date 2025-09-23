@@ -1,0 +1,106 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 车库背景 -->
+  <rect width="800" height="600" fill="#1C1C1C"/>
+  
+  <!-- 墙壁 -->
+  <rect x="0" y="0" width="800" height="400" fill="#2F2F2F"/>
+  
+  <!-- 地面 -->
+  <rect x="0" y="400" width="800" height="200" fill="#404040"/>
+  
+  <!-- 车库门 -->
+  <rect x="50" y="50" width="300" height="250" fill="#4A4A4A"/>
+  <g stroke="#6A6A6A" stroke-width="2" fill="none">
+    <line x1="50" y1="100" x2="350" y2="100"/>
+    <line x1="50" y1="150" x2="350" y2="150"/>
+    <line x1="50" y1="200" x2="350" y2="200"/>
+    <line x1="50" y1="250" x2="350" y2="250"/>
+  </g>
+  
+  <!-- 汽车1 -->
+  <rect x="100" y="350" width="200" height="80" fill="#8B0000"/>
+  <rect x="110" y="360" width="180" height="60" fill="#A0522D"/>
+  <!-- 车窗 -->
+  <rect x="120" y="370" width="60" height="30" fill="#87CEEB"/>
+  <rect x="200" y="370" width="60" height="30" fill="#87CEEB"/>
+  <!-- 车轮 -->
+  <circle cx="130" cy="430" r="20" fill="#2F2F2F"/>
+  <circle cx="130" cy="430" r="12" fill="#C0C0C0"/>
+  <circle cx="270" cy="430" r="20" fill="#2F2F2F"/>
+  <circle cx="270" cy="430" r="12" fill="#C0C0C0"/>
+  <!-- 车灯 -->
+  <circle cx="90" cy="390" r="8" fill="#FFFF00"/>
+  <circle cx="310" cy="390" r="8" fill="#FFFF00"/>
+  
+  <!-- 汽车2 -->
+  <rect x="450" y="380" width="180" height="70" fill="#000080"/>
+  <rect x="460" y="390" width="160" height="50" fill="#4169E1"/>
+  <!-- 车窗 -->
+  <rect x="470" y="400" width="50" height="25" fill="#87CEEB"/>
+  <rect x="560" y="400" width="50" height="25" fill="#87CEEB"/>
+  <!-- 车轮 -->
+  <circle cx="480" cy="450" r="18" fill="#2F2F2F"/>
+  <circle cx="480" cy="450" r="10" fill="#C0C0C0"/>
+  <circle cx="600" cy="450" r="18" fill="#2F2F2F"/>
+  <circle cx="600" cy="450" r="10" fill="#C0C0C0"/>
+  <!-- 车灯 -->
+  <circle cx="435" cy="410" r="6" fill="#FFFF00"/>
+  <circle cx="645" cy="410" r="6" fill="#FFFF00"/>
+  
+  <!-- 工具架 -->
+  <rect x="650" y="150" width="120" height="200" fill="#8B4513"/>
+  <rect x="660" y="160" width="100" height="180" fill="#654321"/>
+  
+  <!-- 工具 -->
+  <rect x="670" y="180" width="3" height="30" fill="#C0C0C0"/>
+  <rect x="680" y="170" width="3" height="40" fill="#C0C0C0"/>
+  <rect x="690" y="185" width="3" height="25" fill="#C0C0C0"/>
+  <rect x="700" y="175" width="3" height="35" fill="#C0C0C0"/>
+  
+  <!-- 扳手 -->
+  <rect x="720" y="190" width="20" height="3" fill="#C0C0C0"/>
+  <circle cx="715" cy="191" r="3" fill="#C0C0C0"/>
+  
+  <!-- 油桶 -->
+  <ellipse cx="700" cy="320" rx="15" ry="20" fill="#2F2F2F"/>
+  <ellipse cx="700" cy="310" rx="15" ry="5" fill="#4A4A4A"/>
+  
+  <!-- 工作台 -->
+  <rect x="400" y="250" width="150" height="80" fill="#8B4513"/>
+  <rect x="405" y="255" width="140" height="70" fill="#654321"/>
+  
+  <!-- 搜证点 1: 油渍手套 (可点击) -->
+  <g id="evidence-gloves" class="evidence-hotspot" data-evidence="0">
+    <ellipse cx="480" cy="290" rx="15" ry="10" fill="#2F2F2F"/>
+    <ellipse cx="500" cy="295" rx="15" ry="10" fill="#2F2F2F"/>
+    <!-- 油渍 -->
+    <circle cx="475" cy="285" r="3" fill="#000"/>
+    <circle cx="485" cy="292" r="2" fill="#000"/>
+    <circle cx="495" cy="290" r="2.5" fill="#000"/>
+    <!-- 红色污迹 -->
+    <circle cx="505" cy="298" r="2" fill="#8B0000"/>
+    <circle cx="478" cy="295" r="1.5" fill="#8B0000"/>
+  </g>
+  
+  <!-- 灯泡 -->
+  <circle cx="400" cy="100" r="15" fill="#FFFF00" opacity="0.7"/>
+  <rect x="395" y="115" width="10" height="10" fill="#4A4A4A"/>
+  
+  <!-- 窗户 -->
+  <rect x="550" y="80" width="80" height="60" fill="#191970"/>
+  <rect x="585" y="80" width="3" height="60" fill="#4A4A4A"/>
+  <rect x="550" y="107" width="80" height="3" fill="#4A4A4A"/>
+  
+  <!-- 雪花 -->
+  <circle cx="570" cy="100" r="1.5" fill="white"/>
+  <circle cx="600" cy="95" r="1" fill="white"/>
+  <circle cx="610" cy="120" r="1.5" fill="white"/>
+  
+  <!-- 地面油迹 -->
+  <ellipse cx="200" cy="480" rx="30" ry="10" fill="#000" opacity="0.3"/>
+  <ellipse cx="500" cy="470" rx="25" ry="8" fill="#000" opacity="0.3"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="serif" font-size="24" fill="#FFD700" text-anchor="middle">车库</text>
+  <text x="400" y="55" font-family="serif" font-size="14" fill="#DDD" text-anchor="middle">点击场景中的物品进行搜证</text>
+</svg>

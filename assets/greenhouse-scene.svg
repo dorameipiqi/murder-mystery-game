@@ -1,0 +1,109 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 温室背景 -->
+  <rect width="800" height="600" fill="#0F1419"/>
+  
+  <!-- 玻璃屋顶 -->
+  <polygon points="100,50 700,50 750,100 50,100" fill="#2F4F4F" opacity="0.3"/>
+  
+  <!-- 玻璃墙面 -->
+  <rect x="50" y="100" width="700" height="300" fill="#2F4F4F" opacity="0.2"/>
+  
+  <!-- 玻璃框架 -->
+  <g stroke="#4A4A4A" stroke-width="3" fill="none">
+    <line x1="50" y1="100" x2="750" y2="100"/>
+    <line x1="50" y1="400" x2="750" y2="400"/>
+    <line x1="50" y1="100" x2="50" y2="400"/>
+    <line x1="750" y1="100" x2="750" y2="400"/>
+    <line x1="200" y1="50" x2="200" y2="400"/>
+    <line x1="350" y1="50" x2="350" y2="400"/>
+    <line x1="500" y1="50" x2="500" y2="400"/>
+    <line x1="650" y1="50" x2="650" y2="400"/>
+  </g>
+  
+  <!-- 地面 -->
+  <rect x="50" y="400" width="700" height="200" fill="#228B22"/>
+  
+  <!-- 小径 -->
+  <rect x="350" y="400" width="100" height="200" fill="#8B4513"/>
+  
+  <!-- 花盆和植物 -->
+  <g>
+    <!-- 左侧植物 -->
+    <ellipse cx="150" cy="450" rx="30" ry="15" fill="#8B4513"/>
+    <ellipse cx="150" cy="440" rx="25" ry="10" fill="#654321"/>
+    <rect x="145" y="380" width="10" height="60" fill="#228B22"/>
+    <ellipse cx="150" cy="370" rx="20" ry="15" fill="#32CD32"/>
+    
+    <ellipse cx="250" cy="470" rx="25" ry="12" fill="#8B4513"/>
+    <ellipse cx="250" cy="462" rx="20" ry="8" fill="#654321"/>
+    <rect x="247" y="420" width="6" height="42" fill="#228B22"/>
+    <ellipse cx="250" cy="410" rx="15" ry="12" fill="#32CD32"/>
+    
+    <!-- 右侧植物 -->
+    <ellipse cx="550" cy="450" rx="30" ry="15" fill="#8B4513"/>
+    <ellipse cx="550" cy="440" rx="25" ry="10" fill="#654321"/>
+    <rect x="545" y="380" width="10" height="60" fill="#228B22"/>
+    <ellipse cx="550" cy="370" rx="20" ry="15" fill="#32CD32"/>
+    
+    <ellipse cx="650" cy="470" rx="25" ry="12" fill="#8B4513"/>
+    <ellipse cx="650" cy="462" rx="20" ry="8" fill="#654321"/>
+    <rect x="647" y="420" width="6" height="42" fill="#228B22"/>
+    <ellipse cx="650" cy="410" rx="15" ry="12" fill="#32CD32"/>
+  </g>
+  
+  <!-- 工作台 -->
+  <rect x="300" y="320" width="200" height="60" fill="#8B4513"/>
+  <rect x="305" y="325" width="190" height="50" fill="#654321"/>
+  
+  <!-- 工具 -->
+  <rect x="320" y="340" width="15" height="3" fill="#C0C0C0"/>
+  <rect x="340" y="338" width="20" height="5" fill="#C0C0C0"/>
+  
+  <!-- 搜证点 1: 脚印 (可点击) -->
+  <g id="evidence-footprints" class="evidence-hotspot" data-evidence="0">
+    <!-- 雪地 -->
+    <rect x="120" y="500" width="200" height="80" fill="white" opacity="0.7"/>
+    <!-- 脚印1 (平底鞋) -->
+    <ellipse cx="150" cy="530" rx="12" ry="6" fill="#8B4513"/>
+    <ellipse cx="150" cy="545" rx="12" ry="6" fill="#8B4513"/>
+    <!-- 脚印2 (高跟鞋) -->
+    <ellipse cx="200" cy="535" rx="8" ry="4" fill="#4B0082"/>
+    <circle cx="204" cy="535" r="1.5" fill="#4B0082"/>
+    <ellipse cx="200" cy="550" rx="8" ry="4" fill="#4B0082"/>
+    <circle cx="204" cy="550" r="1.5" fill="#4B0082"/>
+  </g>
+  
+  <!-- 搜证点 2: 丢弃的手帕 (可点击) -->
+  <g id="evidence-handkerchief" class="evidence-hotspot" data-evidence="1">
+    <ellipse cx="480" cy="520" rx="25" ry="15" fill="white"/>
+    <ellipse cx="480" cy="520" rx="20" ry="12" fill="#F5F5DC"/>
+    <!-- 刺绣花边 -->
+    <circle cx="470" cy="515" r="2" fill="#FFB6C1"/>
+    <circle cx="475" cy="512" r="1.5" fill="#FFB6C1"/>
+    <circle cx="485" cy="510" r="2" fill="#FFB6C1"/>
+    <circle cx="490" cy="513" r="1.5" fill="#FFB6C1"/>
+    <!-- 名字刺绣 -->
+    <text x="480" y="525" font-family="serif" font-size="8" fill="#8B0000" text-anchor="middle">E</text>
+  </g>
+  
+  <!-- 雾气效果 -->
+  <ellipse cx="200" cy="200" rx="50" ry="20" fill="white" opacity="0.1"/>
+  <ellipse cx="500" cy="180" rx="60" ry="25" fill="white" opacity="0.1"/>
+  <ellipse cx="600" cy="220" rx="40" ry="15" fill="white" opacity="0.1"/>
+  
+  <!-- 温度计 -->
+  <rect x="700" y="150" width="8" height="50" fill="#C0C0C0"/>
+  <circle cx="704" cy="190" r="5" fill="#FF0000"/>
+  <rect x="702" y="160" width="4" height="25" fill="#FF0000"/>
+  
+  <!-- 雪花（室外可见） -->
+  <circle cx="80" cy="120" r="1.5" fill="white"/>
+  <circle cx="120" cy="140" r="1" fill="white"/>
+  <circle cx="160" cy="115" r="1.5" fill="white"/>
+  <circle cx="760" cy="130" r="1" fill="white"/>
+  <circle cx="720" cy="125" r="1.5" fill="white"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="serif" font-size="24" fill="#32CD32" text-anchor="middle">温室</text>
+  <text x="400" y="55" font-family="serif" font-size="14" fill="#DDD" text-anchor="middle">点击场景中的物品进行搜证</text>
+</svg>

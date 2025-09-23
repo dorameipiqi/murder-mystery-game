@@ -1,0 +1,101 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 卧室背景 -->
+  <rect width="800" height="600" fill="#1A1A2E"/>
+  
+  <!-- 墙壁 -->
+  <rect x="0" y="0" width="800" height="400" fill="#16213E"/>
+  
+  <!-- 地板 -->
+  <rect x="0" y="400" width="800" height="200" fill="#654321"/>
+  
+  <!-- 地毯 -->
+  <ellipse cx="400" cy="500" rx="200" ry="80" fill="#8B0000"/>
+  
+  <!-- 大床 -->
+  <rect x="250" y="250" width="300" height="180" fill="#8B4513"/>
+  <rect x="240" y="240" width="320" height="20" fill="#654321"/>
+  
+  <!-- 床垫 -->
+  <rect x="260" y="260" width="280" height="120" fill="#F5F5DC"/>
+  
+  <!-- 枕头 -->
+  <ellipse cx="320" cy="290" rx="40" ry="20" fill="white"/>
+  <ellipse cx="480" cy="290" rx="40" ry="20" fill="white"/>
+  
+  <!-- 被子 -->
+  <rect x="270" y="320" width="260" height="50" fill="#4B0082"/>
+  
+  <!-- 床头柜（左） -->
+  <rect x="180" y="320" width="60" height="60" fill="#8B4513"/>
+  <rect x="185" y="325" width="50" height="50" fill="#654321"/>
+  <circle cx="220" cy="340" r="3" fill="#FFD700"/>
+  
+  <!-- 床头柜（右） -->
+  <rect x="560" y="320" width="60" height="60" fill="#8B4513"/>
+  <rect x="565" y="325" width="50" height="50" fill="#654321"/>
+  <circle cx="600" cy="340" r="3" fill="#FFD700"/>
+  
+  <!-- 衣柜 -->
+  <rect x="50" y="100" width="120" height="250" fill="#654321"/>
+  <rect x="60" y="110" width="100" height="230" fill="#8B4513"/>
+  <line x1="110" y1="110" x2="110" y2="340" stroke="#654321" stroke-width="3"/>
+  <circle cx="90" cy="220" r="3" fill="#FFD700"/>
+  <circle cx="130" cy="220" r="3" fill="#FFD700"/>
+  
+  <!-- 梳妆台 -->
+  <rect x="650" y="150" width="120" height="80" fill="#8B4513"/>
+  <rect x="655" y="155" width="110" height="70" fill="#654321"/>
+  
+  <!-- 镜子 -->
+  <ellipse cx="710" cy="130" rx="40" ry="60" fill="#87CEEB"/>
+  <ellipse cx="710" cy="130" rx="35" ry="55" fill="#B0E0E6"/>
+  
+  <!-- 窗户 -->
+  <rect x="600" y="50" width="120" height="80" fill="#191970"/>
+  <rect x="655" y="50" width="5" height="80" fill="#654321"/>
+  <rect x="600" y="87" width="120" height="5" fill="#654321"/>
+  
+  <!-- 月光 -->
+  <circle cx="650" cy="80" r="15" fill="#F0F8FF" opacity="0.7"/>
+  
+  <!-- 搜证点 1: 药物盒 (可点击) -->
+  <g id="evidence-medicine" class="evidence-hotspot" data-evidence="0">
+    <rect x="570" y="330" width="35" height="15" fill="white"/>
+    <rect x="572" y="332" width="31" height="11" fill="#FF6347"/>
+    <circle cx="580" cy="337" r="2" fill="white"/>
+    <circle cx="590" cy="337" r="2" fill="white"/>
+    <circle cx="595" cy="337" r="2" fill="white"/>
+    <text x="587" y="341" font-family="serif" font-size="6" fill="white">RX</text>
+  </g>
+  
+  <!-- 搜证点 2: 私人日记 (可点击) -->
+  <g id="evidence-diary" class="evidence-hotspot" data-evidence="1">
+    <rect x="190" y="350" width="30" height="20" fill="#8B4513"/>
+    <rect x="192" y="352" width="26" height="16" fill="#F5F5DC"/>
+    <line x1="195" y1="355" x2="215" y2="355" stroke="#000" stroke-width="0.3"/>
+    <line x1="195" y1="357" x2="210" y2="357" stroke="#000" stroke-width="0.3"/>
+    <line x1="195" y1="359" x2="212" y2="359" stroke="#000" stroke-width="0.3"/>
+    <line x1="195" y1="361" x2="208" y2="361" stroke="#000" stroke-width="0.3"/>
+    <text x="205" y="350" font-family="serif" font-size="8" fill="#8B4513">日记</text>
+  </g>
+  
+  <!-- 搜证点 3: 家族照片 (可点击) -->
+  <g id="evidence-photo" class="evidence-hotspot" data-evidence="2">
+    <rect x="660" y="200" width="80" height="60" fill="#8B4513"/>
+    <rect x="665" y="205" width="70" height="50" fill="white"/>
+    <rect x="670" y="210" width="60" height="40" fill="#F5F5DC"/>
+    <!-- 人物轮廓 -->
+    <circle cx="685" cy="225" r="5" fill="#DDD"/>
+    <rect x="682" y="230" width="6" height="12" fill="#DDD"/>
+    <circle cx="705" cy="225" r="5" fill="#DDD"/>
+    <rect x="702" y="230" width="6" height="12" fill="#DDD"/>
+  </g>
+  
+  <!-- 床头灯 -->
+  <rect x="200" y="290" width="8" height="30" fill="#654321"/>
+  <circle cx="204" cy="285" r="8" fill="#F5F5DC"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="serif" font-size="24" fill="#FFD700" text-anchor="middle">主人卧室</text>
+  <text x="400" y="55" font-family="serif" font-size="14" fill="#DDD" text-anchor="middle">点击场景中的物品进行搜证</text>
+</svg>
