@@ -1,0 +1,114 @@
+<svg width="200" height="240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffb347;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#daa520;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#ffefd5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5deb3;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="dress" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9370db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#663399;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#cd853f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b4513;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 穆夏风格装饰背景 -->
+  <rect width="200" height="240" fill="url(#bg)" rx="20" ry="20"/>
+  
+  <!-- 新艺术运动花纹边框 -->
+  <path d="M 10 10 Q 50 5 100 10 Q 150 5 190 10 Q 195 50 190 100 Q 195 150 190 230 Q 150 235 100 230 Q 50 235 10 230 Q 5 150 10 100 Q 5 50 10 10" fill="none" stroke="#daa520" stroke-width="3" opacity="0.8"/>
+  
+  <!-- 穆夏式装饰花卉 -->
+  <g transform="translate(15,15)">
+    <path d="M 0 10 Q 5 0 10 10 Q 15 5 20 15 Q 10 20 0 10" fill="#ff6347" opacity="0.6"/>
+    <circle cx="10" cy="10" r="3" fill="#ffd700" opacity="0.8"/>
+  </g>
+  <g transform="translate(165,15)">
+    <path d="M 0 10 Q 5 0 10 10 Q 15 5 20 15 Q 10 20 0 10" fill="#ff6347" opacity="0.6"/>
+    <circle cx="10" cy="10" r="3" fill="#ffd700" opacity="0.8"/>
+  </g>
+  
+  <!-- 穆夏风格飘逸身形 -->
+  <path d="M 70 90 Q 60 100 65 130 Q 70 160 100 170 Q 130 160 135 130 Q 140 100 130 90 Q 115 85 100 88 Q 85 85 70 90" fill="url(#dress)" opacity="0.9"/>
+  
+  <!-- 优雅的颈部线条 -->
+  <path d="M 90 65 Q 100 60 110 65 Q 108 80 100 85 Q 92 80 90 65" fill="url(#face)"/>
+  
+  <!-- 穆夏式精致面容 -->
+  <ellipse cx="100" cy="50" rx="25" ry="28" fill="url(#face)"/>
+  
+  <!-- 穆夏风格流动发丝 -->
+  <path d="M 75 30 Q 85 15 100 25 Q 115 15 125 30 Q 130 40 125 55 Q 115 65 100 60 Q 85 65 75 55 Q 70 40 75 30" fill="url(#hair)"/>
+  <path d="M 78 35 Q 90 28 100 32 Q 110 28 122 35 Q 118 45 100 50 Q 82 45 78 35" fill="#daa520" opacity="0.7"/>
+  <!-- 飘逸的发丝装饰 -->
+  <path d="M 125 35 Q 135 30 140 40 Q 130 50 125 45" fill="url(#hair)" opacity="0.8"/>
+  <path d="M 75 35 Q 65 30 60 40 Q 70 50 75 45" fill="url(#hair)" opacity="0.8"/>
+  
+  <!-- 穆夏风格装饰耳环 -->
+  <g transform="translate(72,55)">
+    <path d="M 0 0 Q 3 -2 6 0 Q 8 3 6 6 Q 3 8 0 6 Q -2 3 0 0" fill="#ffd700"/>
+    <circle cx="3" cy="3" r="2" fill="#ff6347" opacity="0.8"/>
+  </g>
+  <g transform="translate(122,55)">
+    <path d="M 0 0 Q 3 -2 6 0 Q 8 3 6 6 Q 3 8 0 6 Q -2 3 0 0" fill="#ffd700"/>
+    <circle cx="3" cy="3" r="2" fill="#ff6347" opacity="0.8"/>
+  </g>
+  
+  <!-- 穆夏式深邃双眼 -->
+  <ellipse cx="90" cy="45" rx="5" ry="3" fill="#4169e1" opacity="0.9"/>
+  <ellipse cx="110" cy="45" rx="5" ry="3" fill="#4169e1" opacity="0.9"/>
+  <path d="M 85 42 Q 90 40 95 42" fill="none" stroke="#8b4513" stroke-width="2" opacity="0.8"/>
+  <path d="M 105 42 Q 110 40 115 42" fill="none" stroke="#8b4513" stroke-width="2" opacity="0.8"/>
+  
+  <!-- 穆夏风格红唇 -->
+  <path d="M 95 58 Q 100 61 105 58 Q 103 62 100 63 Q 97 62 95 58" fill="#dc143c"/>
+  
+  <!-- 穆夏风格华丽服装 -->
+  <path d="M 75 85 Q 100 80 125 85 Q 130 120 125 155 Q 100 160 75 155 Q 70 120 75 85" fill="url(#dress)"/>
+  
+  <!-- 新艺术运动装饰图案 -->
+  <g transform="translate(85,95)">
+    <path d="M 0 0 Q 5 -3 10 0 Q 15 5 10 10 Q 5 13 0 10 Q -5 5 0 0" fill="#ffd700" opacity="0.8"/>
+    <path d="M 10 10 Q 15 7 20 10 Q 25 15 20 20 Q 15 23 10 20 Q 5 15 10 10" fill="#ff6347" opacity="0.6"/>
+    <circle cx="15" cy="15" r="3" fill="#9370db" opacity="0.7"/>
+  </g>
+  
+  <!-- 穆夏式装饰腰带 -->
+  <path d="M 80 105 Q 100 100 120 105 Q 118 110 100 108 Q 82 110 80 105" fill="#daa520"/>
+  <ellipse cx="100" cy="107" r="4" fill="#ff6347"/>
+  
+  <!-- 飘逸的袖子 -->
+  <path d="M 75 100 Q 65 95 60 105 Q 65 120 75 115" fill="url(#dress)" opacity="0.9"/>
+  <path d="M 125 100 Q 135 95 140 105 Q 135 120 125 115" fill="url(#dress)" opacity="0.9"/>
+  
+  <!-- 穆夏风格手部装饰 -->
+  <ellipse cx="60" cy="115" rx="8" ry="12" fill="#ffefd5"/>
+  <ellipse cx="140" cy="115" rx="8" ry="12" fill="#ffefd5"/>
+  <circle cx="60" cy="110" r="3" fill="#daa520"/>
+  <circle cx="140" cy="110" r="3" fill="#daa520"/>
+  
+  <!-- 穆夏风格装饰底部 -->
+  <rect x="0" y="200" width="200" height="40" fill="#8b4513" rx="0 0 20 20"/>
+  
+  <!-- 新艺术运动装饰框 -->
+  <path d="M 5 205 Q 25 200 100 205 Q 175 200 195 205 Q 190 220 100 225 Q 10 220 5 205" fill="none" stroke="#daa520" stroke-width="2"/>
+  
+  <!-- 穆夏风格花卉装饰 -->
+  <g transform="translate(15,210)">
+    <path d="M 0 5 Q 3 0 6 5 Q 9 3 12 8 Q 6 12 0 5" fill="#ff6347" opacity="0.8"/>
+  </g>
+  <g transform="translate(173,210)">
+    <path d="M 0 5 Q 3 0 6 5 Q 9 3 12 8 Q 6 12 0 5" fill="#ff6347" opacity="0.8"/>
+  </g>
+  
+  <!-- 穆夏风格文字 -->
+  <text x="100" y="218" text-anchor="middle" fill="#ffd700" font-family="serif" font-size="13" font-weight="bold" font-style="italic">艾米莉亚·雷文斯伍德</text>
+  <text x="100" y="232" text-anchor="middle" fill="#daa520" font-family="serif" font-size="11" font-style="italic">优雅的贵族侄女</text>
+</svg>

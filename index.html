@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雪夜庄园谋杀案 - 交互式推理游戏</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="assets/bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 主容器 -->
+    <div class="game-container">
+        <!-- 标题屏幕 -->
+        <div id="titleScreen" class="screen active">
+            <div class="title-content">
+                <h1 class="game-title">雪夜庄园谋杀案</h1>
+                <p class="subtitle">An Interactive Mystery Game</p>
+                <p class="setting">1934年冬夜，约克郡雷文斯伍德庄园</p>
+                <div class="story-intro">
+                    <p>暴风雪夜，古董收藏家雷金纳德·雷文斯伍德爵士在自己的庄园中被谋杀。</p>
+                    <p>所有客人被困在庄园中，凶手就在他们中间...</p>
+                    <p>作为一名侦探，你需要与每个嫌疑人对话，收集线索，找出真正的凶手。</p>
+                </div>
+                <button id="startGame" class="start-btn">开始调查</button>
+            </div>
+            <div class="snow-effect"></div>
+        </div>
+
+        <!-- 游戏主界面 -->
+        <div id="gameScreen" class="screen">
+            <!-- 顶部状态栏 -->
+            <div class="status-bar">
+                <div class="case-info">
+                    <h2>案件：雷文斯伍德庄园谋杀案</h2>
+                    <p>时间：1934年12月15日 21:30</p>
+                </div>
+                <div class="clue-counter">
+                    <span>线索: <span id="clueCount">0</span>/15</span>
+                    <button id="showClues" class="clue-btn">查看线索</button>
+                </div>
+            </div>
+
+            <!-- 角色选择区域 -->
+            <div class="character-grid">
+                <div class="character-card" data-character="emily">
+                    <div class="character-portrait">
+                        <img src="assets/emily.svg" alt="艾米莉亚·雷文斯伍德">
+                    </div>
+                    <div class="character-info">
+                        <h3>艾米莉亚·雷文斯伍德</h3>
+                        <p class="character-role">侄女，25岁</p>
+                        <p class="character-status">优雅的贵族小姐，但似乎有什么心事...</p>
+                        <div class="interaction-status">
+                            <span class="questions-asked">已询问: <span>0</span>/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-character="morrison">
+                    <div class="character-portrait">
+                        <img src="assets/morrison.svg" alt="詹姆斯·莫里森">
+                    </div>
+                    <div class="character-info">
+                        <h3>詹姆斯·莫里森</h3>
+                        <p class="character-role">商业伙伴，45岁</p>
+                        <p class="character-status">直率的商人，看起来很愤怒...</p>
+                        <div class="interaction-status">
+                            <span class="questions-asked">已询问: <span>0</span>/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-character="harris">
+                    <div class="character-portrait">
+                        <img src="assets/harris.svg" alt="玛格丽特·哈里斯">
+                    </div>
+                    <div class="character-info">
+                        <h3>玛格丽特·哈里斯</h3>
+                        <p class="character-role">推理作家，38岁</p>
+                        <p class="character-status">敏锐的观察者，似乎在调查什么...</p>
+                        <div class="interaction-status">
+                            <span class="questions-asked">已询问: <span>0</span>/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-character="bates">
+                    <div class="character-portrait">
+                        <img src="assets/bates.svg" alt="阿尔弗雷德·贝茨">
+                    </div>
+                    <div class="character-info">
+                        <h3>阿尔弗雷德·贝茨</h3>
+                        <p class="character-role">管家，60岁</p>
+                        <p class="character-status">忠诚的老管家，但今晚看起来很紧张...</p>
+                        <div class="interaction-status">
+                            <span class="questions-asked">已询问: <span>0</span>/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-character="sanders">
+                    <div class="character-portrait">
+                        <img src="assets/sanders.svg" alt="威廉·桑德斯医生">
+                    </div>
+                    <div class="character-info">
+                        <h3>威廉·桑德斯</h3>
+                        <p class="character-role">家庭医生，52岁</p>
+                        <p class="character-status">专业的医生，似乎在隐瞒什么...</p>
+                        <div class="interaction-status">
+                            <span class="questions-asked">已询问: <span>0</span>/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card" data-character="victoria">
+                    <div class="character-portrait">
+                        <img src="assets/victoria.svg" alt="维多利亚·斯特灵">
+                    </div>
+                    <div class="character-info">
+                        <h3>维多利亚·斯特灵</h3>
+                        <p class="character-role">护士，28岁</p>
+                        <p class="character-status">年轻的护士，行为有些可疑...</p>
+                        <div class="interaction-status">
+                            <span class="questions-asked">已询问: <span>0</span>/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 推理按钮 -->
+            <div class="deduction-area">
+                <button id="makeDeduction" class="deduction-btn" disabled>进行推理</button>
+                <p class="deduction-hint">收集足够的线索后才能进行推理</p>
+            </div>
+        </div>
+
+        <!-- 对话界面 -->
+        <div id="dialogScreen" class="screen">
+            <div class="dialog-container">
+                <div class="character-dialog-info">
+                    <div class="dialog-portrait">
+                        <img id="dialogPortrait" src="" alt="">
+                    </div>
+                    <div class="dialog-character-info">
+                        <h3 id="dialogCharacterName"></h3>
+                        <p id="dialogCharacterRole"></p>
+                    </div>
+                </div>
+
+                <div class="conversation-area">
+                    <div id="conversationHistory" class="conversation-history"></div>
+                    
+                    <div class="question-options">
+                        <h4>选择一个问题：</h4>
+                        <div id="questionList" class="question-list"></div>
+                    </div>
+                </div>
+
+                <div class="dialog-controls">
+                    <button id="endDialog" class="end-dialog-btn">结束对话</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 线索查看界面 -->
+        <div id="clueScreen" class="screen">
+            <div class="clue-container">
+                <div class="clue-header">
+                    <h2>收集到的线索</h2>
+                    <button id="closeClues" class="close-btn">关闭</button>
+                </div>
+                <div id="clueList" class="clue-list"></div>
+            </div>
+        </div>
+
+        <!-- 推理界面 -->
+        <div id="deductionScreen" class="screen">
+            <div class="deduction-container">
+                <div class="deduction-header">
+                    <h2>谁是真正的凶手？</h2>
+                    <p>基于你收集的线索，选择你认为的凶手并说明理由</p>
+                </div>
+                
+                <div class="suspect-selection">
+                    <div class="suspect-grid">
+                        <div class="suspect-option" data-suspect="emily">
+                            <img src="assets/emily.svg" alt="艾米莉亚">
+                            <span>艾米莉亚·雷文斯伍德</span>
+                        </div>
+                        <div class="suspect-option" data-suspect="morrison">
+                            <img src="assets/morrison.svg" alt="莫里森">
+                            <span>詹姆斯·莫里森</span>
+                        </div>
+                        <div class="suspect-option" data-suspect="harris">
+                            <img src="assets/harris.svg" alt="哈里斯">
+                            <span>玛格丽特·哈里斯</span>
+                        </div>
+                        <div class="suspect-option" data-suspect="bates">
+                            <img src="assets/bates.svg" alt="贝茨">
+                            <span>阿尔弗雷德·贝茨</span>
+                        </div>
+                        <div class="suspect-option" data-suspect="sanders">
+                            <img src="assets/sanders.svg" alt="桑德斯">
+                            <span>威廉·桑德斯</span>
+                        </div>
+                        <div class="suspect-option" data-suspect="victoria">
+                            <img src="assets/victoria.svg" alt="维多利亚">
+                            <span>维多利亚·斯特灵</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reasoning-input">
+                    <h3>你的推理：</h3>
+                    <textarea id="reasoningText" placeholder="请说明你的推理过程和证据..."></textarea>
+                </div>
+
+                <div class="deduction-controls">
+                    <button id="submitDeduction" class="submit-btn" disabled>提交推理</button>
+                    <button id="backToGame" class="back-btn">返回调查</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 结果界面 -->
+        <div id="resultScreen" class="screen">
+            <div class="result-container">
+                <div id="resultContent" class="result-content"></div>
+                <div class="result-controls">
+                    <button id="restartGame" class="restart-btn">重新开始</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

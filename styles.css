@@ -1,0 +1,776 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #f4f4f4;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* 屏幕切换 */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* 标题屏幕 */
+#titleScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(26, 26, 46, 0.9) 0%, rgba(15, 52, 96, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000"/><circle cx="20" cy="20" r="1" fill="%23fff" opacity="0.1"/><circle cx="80" cy="30" r="0.5" fill="%23fff" opacity="0.15"/><circle cx="40" cy="60" r="0.8" fill="%23fff" opacity="0.1"/><circle cx="90" cy="80" r="0.6" fill="%23fff" opacity="0.12"/></svg>');
+    position: relative;
+}
+
+.title-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.game-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #c0c0c0;
+    margin-bottom: 0.5rem;
+}
+
+.setting {
+    font-size: 1rem;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+}
+
+.story-intro {
+    margin: 2rem 0;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.story-intro p {
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+}
+
+.start-btn {
+    background: linear-gradient(45deg, #d4af37, #f4e17a);
+    color: #1a1a2e;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* 雪花效果 */
+.snow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 40px 70px, white, transparent),
+        radial-gradient(1px 1px at 90px 40px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(2px 2px at 160px 30px, white, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: snow 10s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes snow {
+    0% { transform: translateY(-100px); }
+    100% { transform: translateY(100vh); }
+}
+
+/* 游戏主界面 */
+#gameScreen {
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    border: 1px solid #d4af37;
+}
+
+.case-info h2 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.case-info p {
+    color: #c0c0c0;
+    font-size: 1rem;
+}
+
+.clue-counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.clue-counter span {
+    font-size: 1.1rem;
+    color: #f4f4f4;
+}
+
+.clue-btn {
+    background: #4a5568;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.clue-btn:hover {
+    background: #718096;
+}
+
+/* 角色网格 */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.character-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #4a5568;
+    border-radius: 15px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.character-card:hover {
+    border-color: #d4af37;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+
+.character-card.completed {
+    border-color: #48bb78;
+    background: rgba(72, 187, 120, 0.1);
+}
+
+.character-portrait {
+    width: 100px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.character-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-info {
+    text-align: center;
+}
+
+.character-info h3 {
+    color: #d4af37;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.character-role {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.character-status {
+    color: #e0e0e0;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.interaction-status {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+/* 推理区域 */
+.deduction-area {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.deduction-btn {
+    background: linear-gradient(45deg, #e53e3e, #fc8181);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.deduction-btn:disabled {
+    background: #4a5568;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.deduction-btn:not(:disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+}
+
+.deduction-hint {
+    margin-top: 1rem;
+    color: #a0a0a0;
+    font-style: italic;
+}
+
+/* 对话界面 */
+#dialogScreen {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    padding: 2rem;
+}
+
+.dialog-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+    overflow: hidden;
+}
+
+.character-dialog-info {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-bottom: 1px solid #d4af37;
+}
+
+.dialog-portrait {
+    width: 100px;
+    height: 120px;
+    margin-right: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #d4af37;
+}
+
+.dialog-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dialog-character-info h3 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dialog-character-info p {
+    color: #c0c0c0;
+    font-size: 1.1rem;
+}
+
+.conversation-area {
+    padding: 2rem;
+}
+
+.conversation-history {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.message {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.message.question {
+    background: rgba(74, 85, 104, 0.3);
+    border-left: 4px solid #4299e1;
+}
+
+.message.answer {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid #d4af37;
+}
+
+.message.clue {
+    background: rgba(72, 187, 120, 0.2);
+    border-left: 4px solid #48bb78;
+    border: 2px solid #48bb78;
+}
+
+.message-header {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.question-options h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.question-btn {
+    background: rgba(74, 85, 104, 0.3);
+    color: #f4f4f4;
+    border: 1px solid #4a5568;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.question-btn:hover {
+    background: rgba(66, 153, 225, 0.2);
+    border-color: #4299e1;
+}
+
+.question-btn:disabled {
+    background: rgba(160, 174, 192, 0.2);
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.dialog-controls {
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #4a5568;
+}
+
+.end-dialog-btn {
+    background: #4a5568;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.end-dialog-btn:hover {
+    background: #718096;
+}
+
+/* 线索界面 */
+#clueScreen {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.clue-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.clue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #d4af37;
+}
+
+.clue-header h2 {
+    color: #d4af37;
+    font-size: 2rem;
+}
+
+.close-btn {
+    background: #e53e3e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.close-btn:hover {
+    background: #c53030;
+}
+
+.clue-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.clue-item {
+    background: rgba(72, 187, 120, 0.1);
+    border: 2px solid #48bb78;
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.clue-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.clue-title {
+    color: #48bb78;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.clue-source {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.clue-content {
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* 推理界面 */
+#deductionScreen {
+    background: linear-gradient(135deg, #2d1b69 0%, #1a1a2e 100%);
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.deduction-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.deduction-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.deduction-header h2 {
+    color: #d4af37;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.deduction-header p {
+    color: #c0c0c0;
+    font-size: 1.2rem;
+}
+
+.suspect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.suspect-option {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #4a5568;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.suspect-option:hover {
+    border-color: #d4af37;
+    transform: translateY(-3px);
+}
+
+.suspect-option.selected {
+    border-color: #e53e3e;
+    background: rgba(229, 62, 62, 0.2);
+}
+
+.suspect-option img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.suspect-option span {
+    display: block;
+    color: #f4f4f4;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.reasoning-input {
+    margin: 2rem 0;
+}
+
+.reasoning-input h3 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+#reasoningText {
+    width: 100%;
+    min-height: 150px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #4a5568;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #f4f4f4;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+#reasoningText:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+.deduction-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #e53e3e, #fc8181);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:disabled {
+    background: #4a5568;
+    cursor: not-allowed;
+}
+
+.submit-btn:not(:disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+}
+
+.back-btn {
+    background: #4a5568;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #718096;
+}
+
+/* 结果界面 */
+#resultScreen {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 100%);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-container {
+    max-width: 800px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+}
+
+.result-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #d4af37;
+}
+
+.result-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.result-content .correct {
+    color: #48bb78;
+    font-weight: 600;
+}
+
+.result-content .incorrect {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+.restart-btn {
+    background: linear-gradient(45deg, #d4af37, #f4e17a);
+    color: #1a1a2e;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 2.5rem;
+    }
+    
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .status-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .character-dialog-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dialog-portrait {
+        margin: 0 auto 1rem;
+    }
+    
+    .suspect-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .deduction-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f4e17a;
+}
